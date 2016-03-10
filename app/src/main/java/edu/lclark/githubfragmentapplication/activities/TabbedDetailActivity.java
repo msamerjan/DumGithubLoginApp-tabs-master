@@ -31,7 +31,7 @@ public class TabbedDetailActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
         setSupportActionBar(toolbar);
-
+//arggg just committ!!
 
     }
 }
