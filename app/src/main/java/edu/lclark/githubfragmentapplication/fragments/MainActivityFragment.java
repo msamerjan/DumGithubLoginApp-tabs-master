@@ -19,6 +19,7 @@ import edu.lclark.githubfragmentapplication.NetworkAsyncTask;
 import edu.lclark.githubfragmentapplication.R;
 import edu.lclark.githubfragmentapplication.activities.MainActivity;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
+import edu.lclark.githubfragmentapplication.models.TabbedDetailAdapter;
 
 
 /**
@@ -34,6 +35,7 @@ public class MainActivityFragment extends Fragment implements NetworkAsyncTask.G
 
     NetworkAsyncTask mAsyncTask;
     GithubRecyclerViewAdapter mAdapter;
+    TabbedDetailAdapter Adapter;
 
     ArrayList<GithubUser> mFollowers;
     private FollowerSelectedListener mListener;
@@ -43,6 +45,10 @@ public class MainActivityFragment extends Fragment implements NetworkAsyncTask.G
 
     public interface FollowerSelectedListener {
         void onFollowerSelected(GithubUser follower);
+    }
+
+    public interface TabbedSelectedListener{
+        void onTabbedFollowerButtonSelected( GithubUser user);
     }
 
     public static MainActivityFragment newInstance(GithubUser user) {
@@ -111,5 +117,11 @@ public class MainActivityFragment extends Fragment implements NetworkAsyncTask.G
     @Override
     public void onRowClicked(int position) {
         mListener.onFollowerSelected(mAdapter.getItem(position));
+    }
+
+    @Override
+    public void onTabbedClicked(int position){
+        mListener.onTabbedFollowerButtonSelected(Adapter.getItem(position));
+
     }
 }

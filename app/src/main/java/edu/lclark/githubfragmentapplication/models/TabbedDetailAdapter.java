@@ -15,6 +15,11 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
 
     private final Context mContext;
     private ArrayList<GithubUser> mFollowers;
+    private TabbedClickListener mListener;
+
+    public interface TabbedClickListener {
+        void onTabbedClicked(int position);
+    }
 
     public TabbedDetailAdapter(Context mContext, FragmentManager fm) {
         super(fm);
@@ -23,12 +28,6 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
-        /*while(*//*some how make this work*//*){
-
-            *//* Here we make an array of gitHub users to call with position*//*
-
-        }*/
 
         //return mFollowers == null ? null : mFollowers.get(position);
         Fragment fragment = new UserFragment();
@@ -42,10 +41,12 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return mFollowers == null ? 0 : mFollowers.size();
+        //return mUsers.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         return mContext.getString(R.string.follower_list_title, position);
+        //return super.getPageTitle(position);
     }
 }

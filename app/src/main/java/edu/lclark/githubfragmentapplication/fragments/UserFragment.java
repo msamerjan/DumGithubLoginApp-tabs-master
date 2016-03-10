@@ -1,10 +1,8 @@
 package edu.lclark.githubfragmentapplication.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,13 +68,6 @@ public class UserFragment extends Fragment {
         mUserListener = (MainActivity) getActivity();
 
         Bundle args = getArguments();
-
-        int index = args.getInt(ARG_INDEX);
-        @ColorInt int color = args.getInt(ARG_COLOR);
-
-        rootView.setBackgroundColor(color);
-
-        Log.d("TabDemoFragment", "Created fragment at index " + index);
 
         return rootView;
 
