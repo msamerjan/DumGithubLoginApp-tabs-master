@@ -3,21 +3,18 @@ package edu.lclark.githubfragmentapplication.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 import edu.lclark.githubfragmentapplication.GithubRecyclerViewAdapter;
 import edu.lclark.githubfragmentapplication.NetworkAsyncTask;
 import edu.lclark.githubfragmentapplication.R;
-import edu.lclark.githubfragmentapplication.activities.MainActivity;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
 import edu.lclark.githubfragmentapplication.models.TabbedDetailAdapter;
 
@@ -30,8 +27,10 @@ public class MainActivityFragment extends Fragment implements NetworkAsyncTask.G
 
     public static final String ARG_USER = "MainActivityFragment.User";
 
-    @Bind(R.id.fragment_main_recyclerview)
-    RecyclerView mRecyclerView;
+    ViewPager viewPager;
+
+    /*@Bind(R.id.fragment_main_recyclerview)
+    RecyclerView mRecyclerView;*/
 
     NetworkAsyncTask mAsyncTask;
     GithubRecyclerViewAdapter mAdapter;
@@ -66,7 +65,7 @@ public class MainActivityFragment extends Fragment implements NetworkAsyncTask.G
 
         ButterKnife.bind(this, rootView);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+       /* mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         if (getArguments() != null) {
             GithubUser user = getArguments().getParcelable(ARG_USER);
@@ -82,7 +81,21 @@ public class MainActivityFragment extends Fragment implements NetworkAsyncTask.G
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mListener = (MainActivity) getActivity();
+        mListener = (MainActivity) getActivity();*/
+
+        Button btn = (Button) rootView.findViewById(R.id.fragment_user_tab_button);
+        viewPager = (ViewPager) getActivity().findViewById(R.id.activity_main_viewpager);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(0);
+
+
+            }
+        });
+
 
 
         return rootView;

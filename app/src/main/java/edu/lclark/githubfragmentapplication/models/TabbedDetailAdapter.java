@@ -41,7 +41,6 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return mFollowers == null ? 0 : mFollowers.size();
-        //return mUsers.size();
     }
 
     @Override
