@@ -18,6 +18,7 @@ import butterknife.OnClick;
 import edu.lclark.githubfragmentapplication.R;
 import edu.lclark.githubfragmentapplication.activities.MainActivity;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
+import edu.lclark.githubfragmentapplication.models.TabbedDetailAdapter;
 
 /**
  * Created by ntille on 2/25/16.
@@ -28,7 +29,9 @@ public class UserFragment extends Fragment {
     private GithubUser mUser;
     private UserListener mUserListener;
 
-  ViewPager viewPager;
+    private ViewPager viewPager;
+    private TabbedDetail Adapter adapter;
+
 
     @Bind(R.id.fragment_user_imageview)
     ImageView mImageView;
